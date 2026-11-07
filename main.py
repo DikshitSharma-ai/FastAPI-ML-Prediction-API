@@ -1,4 +1,3 @@
-# Testing pull request trigger
 
 # ============================================
 # main.py
