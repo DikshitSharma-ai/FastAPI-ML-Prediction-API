@@ -9,15 +9,15 @@ on:
     branches:
       - main
 
-  workflow_dispatch:
+  workflow_dispatch:  
 
 jobs:
   first-workflow:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Print success message
-      run: echo "GitHub Actions workflow executed successfully"    
+      - name: Print success message
+        run: echo "GitHub Actions workflow executed successfully"    
