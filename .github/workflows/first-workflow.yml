@@ -1,14 +1,23 @@
 name: First GitHub Actions workflow
 
 on: 
-  push: 
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
 
 jobs:
   first-workflow:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Print success message
-        run: echo "My first GitHub Actions workflow is running successfully"    
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Print success message
+      run: echo "GitHub Actions workflow executed successfully"    
