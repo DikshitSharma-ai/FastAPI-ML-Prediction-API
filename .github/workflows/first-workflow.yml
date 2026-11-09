@@ -1,34 +1,33 @@
-name: Jobs and Steps Demo
+name: Runner Environment
 
-on:
+on: 
   push:
     branches:
-      - main
+      - main 
 
   pull_request:
     branches:
-      - main
+      - main 
 
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    
-    steps:          
-      - name: First step 
-        run: echo "Testing started"
-
-      - name: Second step 
-        run: echo "Application testing completed"
-
-  build:
+  runner-info:
     runs-on: ubuntu-latest 
-    needs: test 
 
-    steps: 
-      - name: First step 
-        run: echo "Docker build started"
+    steps:
+      - name: Check operating system
+        run: uname -a
 
-      - name: Second step 
-        run: echo "Docker image build completed"            
+      - name: Check ubuntu version
+        run: lsb_release -a  
+
+      - name: Check python version 
+        run: python --version 
+
+      - name: Check current directory
+        run: pwd
+
+      - name: List available files
+        run: ls -la      
+            
