@@ -1,6 +1,6 @@
-name: First GitHub Actions workflow
+name: Jobs and Steps Demo
 
-on: 
+on:
   push:
     branches:
       - main
@@ -9,15 +9,26 @@ on:
     branches:
       - main
 
-  workflow_dispatch:  
+  workflow_dispatch:
 
 jobs:
-  first-workflow:
+  test:
     runs-on: ubuntu-latest
+    
+    steps:          
+      - name: First step 
+        run: echo "Testing started"
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Second step 
+        run: echo "Application testing completed"
 
-      - name: Print success message
-        run: echo "GitHub Actions workflow executed successfully"    
+  build:
+    runs-on: ubuntu-latest 
+    needs: test 
+
+    steps: 
+      - name: First step 
+        run: echo "Docker build started"
+
+      - name: Second step 
+        run: echo "Docker image build completed"            
