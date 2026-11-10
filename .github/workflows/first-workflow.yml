@@ -1,9 +1,9 @@
-name: Runner Environment
+name: Python Environment Setup
 
-on: 
+on:
   push:
     branches:
-      - main 
+      - main
 
   pull_request:
     branches:
@@ -12,22 +12,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  runner-info:
+  python-setup:
     runs-on: ubuntu-latest 
 
     steps:
-      - name: Check operating system
-        run: uname -a
+      - name: Checkout repository
+        uses: actions/checkout@v4 
 
-      - name: Check ubuntu version
-        run: lsb_release -a  
+      - name: Set up python 
+        uses: actions/setup-python@v6 
+        with:
+          python-version: '3.12'
 
       - name: Check python version 
         run: python --version 
 
-      - name: Check current directory
-        run: pwd
+      - name: Install dependencies 
+        run: python -m pip install -r requirements.txt 
 
-      - name: List available files
-        run: ls -la      
+      - name: Check installed packages 
+        run: python -m pip list                    
             
