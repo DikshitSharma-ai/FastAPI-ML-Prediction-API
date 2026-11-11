@@ -3,11 +3,9 @@
 # ============================================
 
 import joblib
-
+from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-
 
 x = [
     [20, 20000],
