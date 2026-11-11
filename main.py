@@ -3,13 +3,12 @@
 # main.py
 # ============================================
 
-from contextlib import asynccontextmanager
 import time
-import joblib
+from contextlib import asynccontextmanager
 
+import joblib
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-
 
 pipeline = None
 
