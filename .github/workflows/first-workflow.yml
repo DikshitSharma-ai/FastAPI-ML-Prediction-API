@@ -1,4 +1,4 @@
-name: CI Pipeline 
+name: FastAPI CI Pipeline 
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  quality-and-test:
+  fastapi-ci:
     runs-on: ubuntu-latest 
 
     steps:
