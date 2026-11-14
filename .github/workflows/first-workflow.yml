@@ -1,4 +1,4 @@
-# Add pytest report artifact
+# Pytest report html
 
 name: FastAPI ML CI pipeline 
 
@@ -33,7 +33,9 @@ jobs:
         run: python -m ruff check .
 
       - name: Run pytest 
-        run: mkdir -p reports python -m pytest -v --html=reports/report.html --self-contained-html 
+        run: | 
+          mkdir -p reports 
+          python -m pytest -v --html=reports/report.html --self-contained-html 
 
       # Upload report 
       - name: Upload test report 
