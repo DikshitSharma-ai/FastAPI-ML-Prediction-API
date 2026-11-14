@@ -8,3 +8,4 @@ ruff
 pandas
 numpy
 httpx
+pytest-html
