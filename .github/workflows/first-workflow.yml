@@ -1,3 +1,5 @@
+# Add pytest report artifact
+
 name: FastAPI ML CI pipeline 
 
 on:
