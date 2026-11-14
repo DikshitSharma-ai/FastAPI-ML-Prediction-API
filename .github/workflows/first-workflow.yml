@@ -30,6 +30,15 @@ jobs:
       - name: Run ruff
         run: python -m ruff check .
 
-      - name: Run pytest
-        run: python -m pytest -v                    
+      - name: Run pytest 
+        run: mkdir -p reports python -m pytest -v --html=reports/report.html --self-contained-html 
+
+      # Upload report 
+      - name: Upload test report 
+        if: always()
+        uses: actions/upload-artifact@v4 
+        with:
+          name: pytest-report 
+          path: reports/report.html 
+          if-no-files-found: warn                      
             
