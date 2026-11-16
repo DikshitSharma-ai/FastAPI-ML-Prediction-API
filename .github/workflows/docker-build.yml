@@ -1,3 +1,5 @@
+# Build docker image
+
 name: Automated docker build 
 
 on:
